@@ -150,12 +150,21 @@ NAN_METHOD(City::lookupSync) {
 
   if (record->country_code && record->region) {
     const char *time_zone = GeoIP_time_zone_by_country_and_region(record->country_code, record->region);
+    const char *region_name = GeoIP_region_name_by_code(record->country_code, record->region);
 
     if(time_zone) {
       data->Set(Nan::New<String>("time_zone").ToLocalChecked(),
         Nan::New<String>(time_zone).ToLocalChecked());
     }
+
+    if(region_name) {
+      data->Set(Nan::New<String>("region_name").ToLocalChecked(),
+        Nan::New<String>(region_name).ToLocalChecked());      
+    }
+
   }
+
+
 
   GeoIPRecord_delete(record);
   info.GetReturnValue().Set(data);

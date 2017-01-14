@@ -1,7 +1,7 @@
 var geoip = require('geoip');
 
 // !! Important !!
-// Befor you can use this package, you need to download or buy some data fro http://www.maxmind.com/app/ip-location.
+// Befor you can use this package, you need to download or buy some data from http://www.maxmind.com/app/ip-location.
 // There are some free databases among some commercial versions, the free databases can be found http://geolite.maxmind.com/download/geoip/database/.
 
 
